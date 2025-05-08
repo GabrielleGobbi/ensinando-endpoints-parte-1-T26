@@ -1,5 +1,5 @@
 import express from "express";
-// import db from "./client/db";
+import db from "./client/db";
 
 const app = express();
 const port = process.env.PORT || 8080;

@@ -1,5 +1,5 @@
 import express from "express";
-// import db from "./client/db";
+import db from "./client/db";
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -19,10 +19,10 @@ app.use(express.urlencoded({ extended: true }));
     }
 */
 
-// app.get("/", (req, res) => {
-//   res.send("Hello World");
-// });
+app.get("/", (req, res) => {
+res.send("Hello World");
+});
 
 app.listen(port, () => {
-  console.log(`Esse servidor está rodando em ${port}`);
+  console.log(`Esse servidor está rodando na porta ${port}`);
 });

@@ -8,7 +8,7 @@ npm install
 ```
 
 2 - Iniciando a aplicação
-
+n
 ```bash
 npm start
 ```

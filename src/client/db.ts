@@ -6,7 +6,7 @@ type User = {
 };
 
 const db = () => {
-  const database: User[] = [];
+  const database: User[] = [{id:1,name:"gessica",email:"email",password:"****"}];
   const message = "nao foi possivel encontrar, informacao invalida!";
 
   const getIndice = (id: number) =>
@@ -15,11 +15,6 @@ const db = () => {
   return {
     findById: (id: number) => {
       const user = database.find((user) => user.id == id);
-
-      if (!user) {
-        message: "informacao nao encontrada";
-      }
-
       return user;
     },
     findAll: () => database,
@@ -60,4 +55,4 @@ const db = () => {
   };
 };
 
-export default db() ;
+export default db();

@@ -94,3 +94,6 @@ Para cada funcão você precisa criar uma rota com nome ("/rota") e metodo de re
     res.send(acharTodosUsuarios)
   });
 ```
+para acessar
+curl --location http://localhost:8081/usuarios
+

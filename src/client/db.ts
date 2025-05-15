@@ -1,26 +1,29 @@
+import { randomUUID } from "node:crypto";
+
 type User = {
-  id: number;
+  id: string;
   name: string;
   email: string;
   password: string;
 };
 
 const db = () => {
-  const database: User[] = [{id:1,name:"gessica",email:"email",password:"****"}];
+  const database: User[] = [];
   const message = "nao foi possivel encontrar, informacao invalida!";
 
-  const getIndice = (id: number) =>
+  const getIndice = (id: string) =>
     database.findIndex((user) => user.id === id);
 
   return {
-    findById: (id: number) => {
+    findById: (id: string) => {
       const user = database.find((user) => user.id == id);
       return user;
     },
     findAll: () => database,
     create: (user: User) => {
       const newUser = {
-        id: database.length + 1,
+        // id: `${database.length + 1}user${Date.now()}`,
+        id: randomUUID().toString(),
         name: user.name,
         email: user.email,
         password: user.password,
@@ -28,7 +31,7 @@ const db = () => {
       database.push(newUser);
       return newUser;
     },
-    updateById: (id: number, user: User) => {
+    updateById: (id: string, user: User) => {
       const { name, email, password } = user;
       const indice = getIndice(id);
       if (indice >= 0) {
@@ -44,7 +47,7 @@ const db = () => {
       }
       return { message };
     },
-    remove: (id: number) => {
+    remove: (id: string) => {
       const indice = getIndice(id);
       if (indice >= 0) {
         database.splice(indice, 1);
